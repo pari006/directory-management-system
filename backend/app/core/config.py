@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
 
-    database_url: str = "postgresql+asyncpg://postgres:postgres@127.0.0.1:5432/employee_directory"
+    database_url: str = "postgresql+asyncpg://postgres@127.0.0.1:5432/employee_directory"
 
     db_pool_size: int = 10
     db_max_overflow: int = 20

@@ -24,7 +24,7 @@ Copy-Item ..\.env.example ..\.env
 Set `DATABASE_URL` to a PostgreSQL async URL, for example:
 
 ```env
-DATABASE_URL=postgresql+asyncpg://postgres:postgres@127.0.0.1:5432/employee_directory
+DATABASE_URL=postgresql+asyncpg://postgres:<db-password>@127.0.0.1:5432/employee_directory
 ```
 
 Start the API:
@@ -38,14 +38,16 @@ The app creates tables on startup through SQLAlchemy metadata and applies Postgr
 Optional demo data:
 
 ```powershell
+$env:SEED_PASSWORD = "choose-a-demo-password"
+$env:SEED_DATABASE_URL = "dbname=employee_directory user=postgres host=localhost"
 python seed.py
 ```
 
 Seeded credentials:
 
-- Company admin: `aarav.mehta@abc.com` / `Password123`
-- Employee: `maya.sharma@abc.com` / `Password123`
-- Super admin: `superadmin@orchard.com` / `Password123`
+- Company admin: `aarav.mehta@abc.com` / your `SEED_PASSWORD`
+- Employee: `maya.sharma@abc.com` / your `SEED_PASSWORD`
+- Super admin: `superadmin@orchard.com` / your `SEED_PASSWORD`
 
 ## Frontend
 

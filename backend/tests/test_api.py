@@ -23,6 +23,7 @@ engine = create_async_engine(
     poolclass=StaticPool,
 )
 TestingSessionLocal = async_sessionmaker(bind=engine, expire_on_commit=False)
+TEST_PASSWORD = "TestOnlyPass123!"
 
 
 async def override_get_db():
@@ -44,7 +45,7 @@ async def reset_database():
         session.add(
             SuperAdmin(
                 email="superadmin@orchard.example.com",
-                password_hash=get_password_hash("Password123"),
+                password_hash=get_password_hash(TEST_PASSWORD),
             )
         )
         await session.commit()
@@ -67,7 +68,7 @@ def register_company_admin(email: str = "admin@example.com") -> tuple[dict, dict
         "/api/v1/auth/signup",
         json={
             "email": email,
-            "password": "Password123",
+            "password": TEST_PASSWORD,
             "first_name": "Company",
             "last_name": "Admin",
             "role": "ADMIN",
@@ -89,7 +90,7 @@ def register_employee(company_id: str, email: str = "employee@example.com") -> t
         f"/api/v1/auth/signup?company_id={company_id}",
         json={
             "email": email,
-            "password": "Password123",
+            "password": TEST_PASSWORD,
             "first_name": "Team",
             "last_name": "Member",
             "role": "USER",
@@ -227,7 +228,7 @@ def test_payroll_billing_and_platform_admin_controls():
 
     super_login = client.post(
         "/api/v1/auth/superadmin/login",
-        json={"email": "superadmin@orchard.example.com", "password": "Password123"},
+        json={"email": "superadmin@orchard.example.com", "password": TEST_PASSWORD},
     )
     assert super_login.status_code == 200, super_login.text
     super_headers = auth_headers(super_login.json()["data"]["access_token"])
@@ -252,6 +253,6 @@ def test_payroll_billing_and_platform_admin_controls():
 
     blocked_login = client.post(
         "/api/v1/auth/login",
-        json={"email": "billing-admin@example.com", "password": "Password123"},
+        json={"email": "billing-admin@example.com", "password": TEST_PASSWORD},
     )
     assert blocked_login.status_code == 403

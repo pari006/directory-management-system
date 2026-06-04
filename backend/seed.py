@@ -10,7 +10,9 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from app.core.security import get_password_hash
 
 
-PASSWORD = "Password123"
+SEED_PASSWORD_ENV = "SEED_PASSWORD"
+SEED_DATABASE_URL_ENV = "SEED_DATABASE_URL"
+DEFAULT_SEED_DATABASE_URL = "dbname=employee_directory user=postgres host=localhost"
 
 
 EMPLOYEES = [
@@ -26,7 +28,11 @@ EMPLOYEES = [
 
 
 def seed():
-    conn_string = "dbname=employee_directory user=postgres password=postgres host=localhost"
+    seed_password = os.getenv(SEED_PASSWORD_ENV)
+    if not seed_password:
+        raise RuntimeError(f"Set {SEED_PASSWORD_ENV} before running the seed script.")
+
+    conn_string = os.getenv(SEED_DATABASE_URL_ENV, DEFAULT_SEED_DATABASE_URL)
     with psycopg.connect(conn_string) as conn:
         with conn.cursor() as cur:
             print("Connected to PostgreSQL. Deleting previous application data...")
@@ -55,7 +61,7 @@ def seed():
             )
 
             employee_ids = {}
-            password_hash = get_password_hash(PASSWORD)
+            password_hash = get_password_hash(seed_password)
             for first_name, last_name, email, role, salary, payment_date, leaves_allowed, leaves_taken in EMPLOYEES:
                 employee_id = uuid.uuid4()
                 employee_ids[email] = employee_id
@@ -121,16 +127,16 @@ def seed():
                 INSERT INTO super_admins (id, email, password_hash, created_at)
                 VALUES (%s, %s, %s, NOW())
                 """,
-                (uuid.uuid4(), "superadmin@orchard.com", get_password_hash(PASSWORD)),
+                (uuid.uuid4(), "superadmin@orchard.com", get_password_hash(seed_password)),
             )
 
         conn.commit()
 
     print("Database reset complete.")
     print(f"Company: abc ({company_id})")
-    print("Company admin login: aarav.mehta@abc.com / Password123")
-    print("Employee login: maya.sharma@abc.com / Password123")
-    print("Super admin login: superadmin@orchard.com / Password123")
+    print("Company admin login: aarav.mehta@abc.com / <SEED_PASSWORD>")
+    print("Employee login: maya.sharma@abc.com / <SEED_PASSWORD>")
+    print("Super admin login: superadmin@orchard.com / <SEED_PASSWORD>")
 
 
 if __name__ == "__main__":
