@@ -1,21 +1,56 @@
-# Directory Management System
+<div align="center">
 
-An elegant, full-stack workforce management platform built for modern company operations. It brings employee directories, role-based access, leave workflows, payroll visibility, simulated billing, and platform administration into one clean multi-tenant application.
+<h1>
+  <span style="color:#14b8a6;">Orchard</span>
+  <span style="color:#64748b;">Directory Management System</span>
+</h1>
+
+<p>
+  <strong>A polished multi-tenant workforce platform for directories, leave, payroll, billing, and platform administration.</strong>
+</p>
+
+<p>
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0f766e?style=for-the-badge&logo=fastapi&logoColor=white">
+  <img alt="React" src="https://img.shields.io/badge/React-2563eb?style=for-the-badge&logo=react&logoColor=white">
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-334155?style=for-the-badge&logo=postgresql&logoColor=white">
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-f59e0b?style=for-the-badge&logo=vite&logoColor=white">
+</p>
+
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-111827?style=flat-square&logo=python&logoColor=white">
+  <img alt="Tests" src="https://img.shields.io/badge/API_tests-passing-16a34a?style=flat-square">
+  <img alt="Security" src="https://img.shields.io/badge/secrets-ignored-7c3aed?style=flat-square">
+  <img alt="Status" src="https://img.shields.io/badge/status-GitHub_ready-0ea5e9?style=flat-square">
+</p>
+
+</div>
+
+<div align="center">
+
+```text
+Company Workspaces  ->  Employee Directory  ->  Leave + Payroll  ->  Billing Ledger  ->  Platform Control
+```
+
+</div>
+
+## Overview
+
+Orchard is an elegant, full-stack workforce management platform built for modern company operations. It brings employee directories, role-based access, leave workflows, payroll visibility, simulated billing, and platform administration into one clean multi-tenant application.
 
 The project is designed as a production-minded academic/demo system: secure authentication, tenant-aware data access, a polished React interface, automated API coverage, and GitHub-ready repository hygiene.
 
 ## Highlights
 
-- Multi-tenant company workspaces with isolated employee data
-- JWT authentication with Argon2 password hashing
-- Role-aware access for employees, company admins, and platform super admins
-- Employee directory with create, read, update, delete, search, sorting, and pagination
-- Leave request submission, approval, rejection, and balance tracking
-- Payroll summary views with compensation and payment schedule data
-- Simulated billing ledgers for company and platform-level workflows
-- PostgreSQL-ready async backend with SQLAlchemy models and RLS setup
-- React + Vite frontend with a polished dashboard experience
-- Integration tests covering the most important backend flows
+| Capability | What it delivers |
+| --- | --- |
+| Tenant workspaces | Isolated company data with role-aware access boundaries |
+| Secure auth | JWT access tokens, Argon2 password hashing, legacy bcrypt verification |
+| Employee directory | CRUD, search, sorting, pagination, profile details |
+| Leave operations | Employee requests, admin approval/rejection, balance tracking |
+| Payroll visibility | Headcount, salary overhead, payment schedule data |
+| Billing simulation | Company and platform ledger workflows |
+| Platform admin | Company listing, billing overview, suspension controls |
+| Verification | Integration tests across auth, employees, leave, payroll, billing, and superadmin |
 
 ## Tech Stack
 
