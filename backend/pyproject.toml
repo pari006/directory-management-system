@@ -1,0 +1,24 @@
+[project]
+name = "directory-management-backend"
+version = "0.1.0"
+description = "FastAPI backend for a multi-tenant directory, leave, payroll, and billing management system."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "alembic",
+    "python-jose[cryptography]",
+    "bcrypt<5",
+    "argon2-cffi",
+    "asyncpg",
+    "aiosqlite",
+    "psycopg[binary]",
+    "pydantic[email]",
+    "pydantic-settings",
+    "python-dotenv",
+    "httpx",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
