@@ -1,124 +1,178 @@
 <div align="center">
 
-<h1>
-  <span style="color:#14b8a6;">Orchard</span>
-  <span style="color:#64748b;">Directory Management System</span>
-</h1>
+# 🌳 Orchard
+### Directory Management System
 
-<p>
-  <strong>A polished multi-tenant workforce platform for directories, leave, payroll, billing, and platform administration.</strong>
-</p>
+**A polished multi-tenant workforce platform for directories, leave, payroll, billing, and platform administration.**
 
-<p>
-  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0f766e?style=for-the-badge&logo=fastapi&logoColor=white">
-  <img alt="React" src="https://img.shields.io/badge/React-2563eb?style=for-the-badge&logo=react&logoColor=white">
-  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-334155?style=for-the-badge&logo=postgresql&logoColor=white">
-  <img alt="Vite" src="https://img.shields.io/badge/Vite-f59e0b?style=for-the-badge&logo=vite&logoColor=white">
-</p>
+<br/>
 
-<p>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-111827?style=flat-square&logo=python&logoColor=white">
-  <img alt="Tests" src="https://img.shields.io/badge/API_tests-passing-16a34a?style=flat-square">
-  <img alt="Security" src="https://img.shields.io/badge/secrets-ignored-7c3aed?style=flat-square">
-  <img alt="Status" src="https://img.shields.io/badge/status-GitHub_ready-0ea5e9?style=flat-square">
-</p>
+![FastAPI](https://img.shields.io/badge/FastAPI-0f766e?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-2563eb?style=for-the-badge&logo=react&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-334155?style=for-the-badge&logo=postgresql&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-f59e0b?style=for-the-badge&logo=vite&logoColor=white)
 
-</div>
+![Python](https://img.shields.io/badge/Python-3.11+-111827?style=flat-square&logo=python&logoColor=white)
+![Tests](https://img.shields.io/badge/API_tests-passing-16a34a?style=flat-square)
+![Security](https://img.shields.io/badge/secrets-ignored-7c3aed?style=flat-square)
+![Status](https://img.shields.io/badge/status-GitHub_ready-0ea5e9?style=flat-square)
 
-<div align="center">
+<br/>
+
+**[Overview](#-overview)** · **[Highlights](#-highlights)** · **[Quick Start](#-quick-start)** · **[Modules](#%EF%B8%8F-core-modules)** · **[Docs](#-documentation)**
+
+<br/>
 
 ```text
-Company Workspaces  ->  Employee Directory  ->  Leave + Payroll  ->  Billing Ledger  ->  Platform Control
+Company Workspaces  →  Employee Directory  →  Leave + Payroll  →  Billing Ledger  →  Platform Control
 ```
 
 </div>
 
-## Overview
+<br/>
 
-Orchard is an elegant, full-stack workforce management platform built for modern company operations. It brings employee directories, role-based access, leave workflows, payroll visibility, simulated billing, and platform administration into one clean multi-tenant application.
+## 🏢 Overview
 
-The project is designed as a production-minded academic/demo system: secure authentication, tenant-aware data access, a polished React interface, automated API coverage, and GitHub-ready repository hygiene.
+Orchard is an elegant, full-stack **workforce management platform** built for modern company operations. It brings employee directories, role-based access, leave workflows, payroll visibility, simulated billing, and platform administration into one clean multi-tenant application.
 
-## Highlights
+The project is designed as a **production-minded academic/demo system**: secure authentication, tenant-aware data access, a polished React interface, automated API coverage, and GitHub-ready repository hygiene.
+
+<br/>
+
+## ✨ Highlights
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🏬 Multi-Tenancy & Access
+- Isolated company workspaces with role-aware boundaries
+- JWT access tokens
+- Argon2 password hashing with legacy bcrypt verification
+
+### 👥 Employee Directory
+- Full CRUD
+- Search, sorting, pagination
+- Rich profile details
+
+</td>
+<td width="50%" valign="top">
+
+### 🗓️ Leave & Payroll
+- Employee leave requests
+- Admin approval / rejection flows
+- Balance tracking
+- Headcount, salary overhead & payment schedules
+
+### 💳 Billing & Platform Control
+- Company + platform billing simulation
+- Company listing, suspension controls
+
+</td>
+</tr>
+</table>
+
+<div align="center">
 
 | Capability | What it delivers |
-| --- | --- |
-| Tenant workspaces | Isolated company data with role-aware access boundaries |
-| Secure auth | JWT access tokens, Argon2 password hashing, legacy bcrypt verification |
-| Employee directory | CRUD, search, sorting, pagination, profile details |
-| Leave operations | Employee requests, admin approval/rejection, balance tracking |
-| Payroll visibility | Headcount, salary overhead, payment schedule data |
-| Billing simulation | Company and platform ledger workflows |
-| Platform admin | Company listing, billing overview, suspension controls |
-| Verification | Integration tests across auth, employees, leave, payroll, billing, and superadmin |
+| :--- | :--- |
+| 🏢 Tenant workspaces | Isolated company data with role-aware access boundaries |
+| 🔐 Secure auth | JWT access tokens, Argon2 password hashing, legacy bcrypt verification |
+| 👥 Employee directory | CRUD, search, sorting, pagination, profile details |
+| 🗓️ Leave operations | Employee requests, admin approval/rejection, balance tracking |
+| 💰 Payroll visibility | Headcount, salary overhead, payment schedule data |
+| 🧾 Billing simulation | Company and platform ledger workflows |
+| 🛠️ Platform admin | Company listing, billing overview, suspension controls |
+| ✅ Verification | Integration tests across auth, employees, leave, payroll, billing, and superadmin |
 
-## Tech Stack
+</div>
+
+<br/>
+
+## 🛠️ Tech Stack
 
 | Layer | Tools |
-| --- | --- |
-| Frontend | React 18, Vite, CSS |
-| Backend | FastAPI, SQLAlchemy async sessions, Pydantic |
-| Database | PostgreSQL for runtime, async SQLite for tests |
-| Auth | JWT, Argon2, legacy bcrypt verification support |
-| Testing | Pytest, FastAPI TestClient |
+| :--- | :--- |
+| **Frontend** | React 18 · Vite · CSS |
+| **Backend** | FastAPI · SQLAlchemy async sessions · Pydantic |
+| **Database** | PostgreSQL (runtime) · async SQLite (tests) |
+| **Auth** | JWT · Argon2 · legacy bcrypt verification support |
+| **Testing** | Pytest · FastAPI TestClient |
 
-## Core Modules
+<br/>
+
+## 🗂️ Core Modules
 
 ```text
 backend/
   app/
-    api/deps.py              # auth, role checks, tenant enforcement, db session lifecycle
-    api/routes/              # auth, employees, leaves, payroll, billing, superadmin
-    core/                    # settings, database, security, exception handlers
-    models/database_models.py # canonical SQLAlchemy data model
-    schemas/                 # request and response schemas
-  tests/test_api.py          # integration coverage for API workflows
+    api/deps.py               # auth, role checks, tenant enforcement, db session lifecycle
+    api/routes/                # auth, employees, leaves, payroll, billing, superadmin
+    core/                      # settings, database, security, exception handlers
+    models/database_models.py  # canonical SQLAlchemy data model
+    schemas/                   # request and response schemas
+  tests/test_api.py           # integration coverage for API workflows
   requirements.txt
   seed.py
 
 frontend/
-  src/App.jsx                # landing page, dashboard, directory, leave, payroll, platform UI
-  src/api.js                 # API client and payload normalization
-  src/styles.css             # application styling
+  src/App.jsx                 # landing page, dashboard, directory, leave, payroll, platform UI
+  src/api.js                  # API client and payload normalization
+  src/styles.css               # application styling
   package.json
 ```
 
-## Product Surface
+<br/>
 
-**Company users**
+## 🧭 Product Surface
 
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 👤 Company Users
 - Create a company workspace
 - Sign in with email and password
 - View role-aware dashboards
 - Browse and search the employee directory
 - Submit and track leave requests
 
-**Company admins**
+</td>
+<td width="33%" valign="top">
 
+### 🛡️ Company Admins
 - Manage employees
 - Approve or reject leave requests
 - Review leave balances
 - View payroll summaries
 - Record simulated payment runs
 
-**Super admins**
+</td>
+<td width="33%" valign="top">
 
+### 👑 Super Admins
 - View all tenant companies
 - Review platform billing ledgers
 - Simulate platform billing entries
 - Suspend or reactivate company access
 
-## Quick Start
+</td>
+</tr>
+</table>
 
-Clone the repository and create a local environment file:
+<br/>
+
+## 🚀 Quick Start
+
+**1️⃣ Clone the repo & create a local environment file**
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Update `.env` with your PostgreSQL connection string and a strong `SECRET_KEY`.
+> Update `.env` with your PostgreSQL connection string and a strong `SECRET_KEY`.
 
-### Backend
+**2️⃣ Start the backend**
 
 ```powershell
 cd backend
@@ -138,9 +192,7 @@ Interactive API docs:
 http://127.0.0.1:8000/docs
 ```
 
-### Frontend
-
-Open a second terminal:
+**3️⃣ Start the frontend** *(new terminal)*
 
 ```powershell
 cd frontend
@@ -154,9 +206,11 @@ The app will be available at:
 http://127.0.0.1:5173
 ```
 
-## Optional Demo Data
+<br/>
 
-The seed script intentionally does not hardcode passwords. Set the seed password yourself before running it:
+## 🌱 Optional Demo Data
+
+The seed script intentionally does **not** hardcode passwords. Set the seed password yourself before running it:
 
 ```powershell
 cd backend
@@ -165,15 +219,21 @@ $env:SEED_DATABASE_URL = "dbname=employee_directory user=postgres host=localhost
 python seed.py
 ```
 
-Seeded users:
+<div align="center">
 
-- Company admin: `aarav.mehta@abc.com`
-- Employee: `maya.sharma@abc.com`
-- Super admin: `superadmin@orchard.com`
+| Role | Seeded email |
+| :--- | :--- |
+| 🛡️ Company admin | `aarav.mehta@abc.com` |
+| 👤 Employee | `maya.sharma@abc.com` |
+| 👑 Super admin | `superadmin@orchard.com` |
 
-All seeded users use the password from `SEED_PASSWORD`.
+*All seeded users use the password from `SEED_PASSWORD`.*
 
-## Verification
+</div>
+
+<br/>
+
+## ✅ Verification
 
 Run backend tests:
 
@@ -195,25 +255,44 @@ cd ..\frontend
 npm run build
 ```
 
-## Security and Repository Hygiene
+<br/>
+
+## 🔒 Security & Repository Hygiene
 
 This repository is prepared for public GitHub hosting:
 
-- `.env` is ignored
-- local database files are ignored
-- logs, caches, virtual environments, `node_modules`, and build output are ignored
-- `.env.example` contains placeholders only
-- seed credentials are environment-driven
+- ✅ `.env` is ignored
+- ✅ Local database files are ignored
+- ✅ Logs, caches, virtual environments, `node_modules`, and build output are ignored
+- ✅ `.env.example` contains placeholders only
+- ✅ Seed credentials are environment-driven
 
-Do not commit real production secrets, database passwords, private keys, or generated deployment artifacts.
+> ⚠️ **Never commit** real production secrets, database passwords, private keys, or generated deployment artifacts.
 
-## Documentation
+<br/>
 
-- [API Documentation](API_DOCUMENTATION.md)
-- [Architecture](ARCHITECTURE.md)
-- [Setup Guide](SETUP_GUIDE.md)
-- [Verification Checklist](VERIFICATION_CHECKLIST.md)
+## 📚 Documentation
 
-## Status
+| Document | Description |
+| :--- | :--- |
+| 📘 [API Documentation](API_DOCUMENTATION.md) | Full API reference |
+| 🏗️ [Architecture](ARCHITECTURE.md) | System design overview |
+| ⚙️ [Setup Guide](SETUP_GUIDE.md) | Step-by-step environment setup |
+| ✅ [Verification Checklist](VERIFICATION_CHECKLIST.md) | Pre-deployment checks |
 
-The project has been cleaned, tested, and prepared for GitHub. It is ready for continued development, deployment planning, and feature expansion.
+<br/>
+
+<div align="center">
+
+---
+
+### 📌 Status
+
+**Cleaned. Tested. GitHub-ready.**
+Ready for continued development, deployment planning, and feature expansion.
+
+<br/>
+
+*Built layer by layer — from tenant to table.* 🌳
+
+</div>
